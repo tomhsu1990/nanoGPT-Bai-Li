@@ -11,7 +11,7 @@ In this mini-project, I used nanoGPT to create a model capable of generating poe
 2. Data Preparation: Translated the collected poems into Traditional Chinese and performed data cleaning to ensure the text was consistent and usable for training.
 3. Training Configuration: Initially, I used the original configuration parameters from `train_shakespeare_char.py`, but the output was not satisfactory due to mismatched dataset characteristics. For example, the original model used a batch size of 64 and a block size of 256, which were unsuitable for Bai Li’s larger dataset and longer sequences. I tuned the configuration in `train_bai_li_char.py`, reducing the batch size to 12, increasing the block size to 2048, and adjusting the model dimensions (e.g., reducing n_layer, n_head, and n_embd for faster convergence). These changes significantly improved the results, making the output align better with Bai Li’s poetic style.
 Original Parameters' Output
-````
+```
 秋》露姓縵
 
 濯講七
@@ -23,6 +23,7 @@ Original Parameters' Output
 一咿 穴村七
 一淺步防虛》
 ```
+
 - Updated Parameters' Output
 ```
 秋殿開徵客，千里看書一身當百戰，
@@ -32,6 +33,7 @@ Original Parameters' Output
 無無限似儂入寒山中散發洛城頭，唯所歸去，對，前。
 柴門前舊枕浮雲臺，唯所是與人畏
 ```
+
 Training the Model: Ran the training script on the prepared dataset.
 ```
 python train.py config/train_bai_li_char.py
